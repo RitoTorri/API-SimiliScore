@@ -20,4 +20,11 @@ const responseErrorInternal = (res, message = 'Error') => {
     });
 }
 
-module.exports = { responseSuccess, responseError, responseErrorInternal };
+const reponseErrorFormat = (res, message = "Error") => {
+    return res.status(422).json({ 
+        success : false,
+        message
+    }); 
+}
+
+module.exports = { responseSuccess, responseError, responseErrorInternal, reponseErrorFormat };

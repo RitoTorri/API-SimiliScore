@@ -20,12 +20,12 @@ describe('POST /api/detector/plagio/compare', () => {
     });
 
     // Test case 2
-    test('Should return a 400 status code', async () => {
+    test('Should return a 422 status code', async () => {
         const response = await request(app).post('/api/detector/plagio/compare').send({
             string1: '',
             string2: ''
         });
-        expect(response.statusCode).toBe(400);
+        expect(response.statusCode).toBe(422);
     });
 
     // Test case 3
@@ -46,5 +46,11 @@ describe('POST /api/detector/plagio/compare', () => {
         expect(response.body.success).toBeDefined();
         expect(response.body.message).toBeDefined();
         expect(response.body.data).toBeDefined();
+    });
+
+    // Test case 5
+    test('Should return a 400 status code when strings are not provided', async () => {
+        const response = await request(app).post('/api/detector/plagio/compare').send({});
+        expect(response.statusCode).toBe(400);
     });
 });

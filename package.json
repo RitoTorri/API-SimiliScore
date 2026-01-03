@@ -1,5 +1,5 @@
 {
-  "name": "detector-plagio",
+  "name": "detector-de-plagio",
   "version": "1.0.0",
   "description": "APIrest de detección de plagio entre dos textos.",
   "main": "src/index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RitoTorri/Detector-dePlagio.git"
+    "url": "git+https://github.com/RitoTorri/Detector-de-Plagio"
   },
   "author": "Jesus Cortez",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/RitoTorri/Detector-dePlagio/issues"
+    "url": "https://github.com/RitoTorri/Detector-de-Plagio/issues"
   },
-  "homepage": "https://github.com/RitoTorri/Detector-dePlagio#readme",
+  "homepage": "https://github.com/RitoTorri/Detector-de-Plagio#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.2.1",
