@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  detector-de-plagio:
+    build: .
+    image: img-detector-plagio
+    container_name: contenedor-plagio
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - PORT=${PORT}
+      - API_RATE_LIMIT=${API_RATE_LIMIT}
+      - API_RATE_LIMIT_WINDOW=${API_RATE_LIMIT_WINDOW}
+    restart: always

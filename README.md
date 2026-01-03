@@ -1,6 +1,6 @@
 # 🔍 Detector de Plagio
 
-![Estado del proyecto](https://img.shields.io/badge/Estado-Desarrollo-yellow?style=for-the-badge)
+![Estado del proyecto](https://img.shields.io/badge/Estado-Completado-green?style=for-the-badge)
 
 <table>
   <tr>
@@ -29,13 +29,35 @@
 [![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
 [![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
 </div>
 
 ## 📖 Documentos
 Accede a la guía detallada de endpoints y pruebas:
-- 📘 [Manual Técnico (Markdown)](https://github.com/RitoTorri/Detector-de-Plagio/blob/main/docs/Manual.md) - Detalles de parámetros y respuestas.  
+- 📘 [Manual Técnico (Markdown)](https://github.com/RitoTorri/Detector-de-Plagio/blob/master/docs/Manual.md) - Detalles de parámetros y respuestas.  
 - 🚀 [Workspace de Postman](https://ritotorri-5321757.postman.co/workspace/Cortez-Jes%C3%BAs-'s-Workspace~f2d04eac-b157-4c2b-8546-4c816e6a14a8/collection/48845560-59e68cbf-ce85-432b-ae25-7424889a5fb9?action=share&creator=48845560) - Pruebas interactivas de la API.  
+
+## ⚙️ Configuracion
+En la carpeta raiz del proyecto hay un archivo llamado `example.env` que contiene las variables de entorno necesarias para ejecutar el proyecto. 
+
+Debes de cambiarle el nommbre del archivo `example.env` a `.env` y luego debes de darle valor a las variable definidas en ese archivo.
+
+**Importante:** El archivo `.env` debe de estar en la carpeta raiz del proyecto. Ademas las variables definidas alli seran o son utilizada para la ejecucion del proyecto desde docker.
+
+#### 🌍 Variables de entorno
+`PORT`: Puerto de ejecución del servidor. Puedes cambiarlo a cualquier puerto que desees. Por defecto es `3000`.
+```bash
+PORT=3000
+```
+`API_RATE_LIMIT`: Cantidad máxima de peticiones por IP. Puedes cambiarlo a cualquier número que desees. Por defecto es `100`.
+```bash
+API_RATE_LIMIT=100
+```
+`API_RATE_LIMIT_WINDOW`: Tiempo de bloqueo de dirección IP. Debes de cambiarlo a un número en milisegundos. Por defecto es 15 minutos (900000 milisegundos).
+```bash
+API_RATE_LIMIT_WINDOW=900000
+```
 
 ## 📦 Instalación
 Ejecuta los siguientes comandos en la terminal para instalar el proyecto:
@@ -55,16 +77,49 @@ npm run install:all
 ```
 
 ## 🚀 Ejecución
-Ejecuta el siguiente comando en la terminal para ejecutar el proyecto:
+Este proyecto se compone de diferentes scripts para ejecutar el servidor en diferentes entornos. Desde docker hasta desarrollo local.
 
-### Para desarrollo
+### 💻 Ejecucion en el entorno LOCAL
+
 ```bash
 # Ejecutar el servidor de desarrollo
-npm run dev
+npm run dev:local
 
 # Ejecutar el servidor de producción
-npm start
+npm start:local
 
 # Ejecutar los tests
 npm run test
 ```
+
+### 🐳 Ejecucion en el entorno de DOCKER
+
+Este proyecto utiliza Docker exclusivamente para entornos de producción. Al no utilizar volúmenes de sincronización en tiempo real, cualquier modificación en el código fuente requiere una reconstrucción de la imagen para que los cambios sean aplicados.
+
+Para construir la imagen desde cero y levantar el servicio, ejecuta:
+```bash
+# Construir la imagen de docker
+docker-compose build --no-cache detector-de-plagio
+
+# ejecutar en primer plano
+docker-compose up detector-de-plagio
+
+# Ejecutar en segundo plano
+docker-compose up -d detector-de-plagio
+```
+
+Si has realizado cambios en el código y necesitas que el contenedor los reconozca, el flujo correcto es detener el servicio actual y reconstruir:
+```bash
+# Eliminar el contenedor
+docker-compose rm -s -f detector-de-plagio
+
+# Reconstruir la imagen de docker
+docker-compose build --no-cache detector-de-plagio
+
+# Ejecutar en segundo plano
+docker-compose up -d detector-de-plagio
+```
+
+## 💡 ¿Necesitas ayuda o encontraste un error?
+
+Si experimentas problemas con la API o consideras que la documentación puede mejorar, te invitamos a abrir un [Issue en GitHub](https://github.com/RitoTorri/Detector-de-Plagio/issues). Tu retroalimentación es fundamental para seguir mejorando este proyecto.

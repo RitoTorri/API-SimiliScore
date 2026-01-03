@@ -1,11 +1,7 @@
 // Importación de dependencias
 const express = require('express');
-const dotenv = require('dotenv');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-
-// Configuración de variables de entorno
-dotenv.config();
 
 // Importación de rutas
 const compare = require('./controller/compare.controller');
@@ -14,7 +10,7 @@ const compare = require('./controller/compare.controller');
 class App {
     // Atributos
     app;
-    port; 
+    port;
     urlBase;
 
     // Rate limir
@@ -24,13 +20,13 @@ class App {
     // Inicializacion de atributos
     constructor() {
         this.app = new express();
-        this.port = process.env.PORT || 3000;
-        this.rateLimit = process.env.API_RATE_LIMIT || 100;
-        this.rateLimitWindow = process.env.API_RATE_LIMIT_WINDOW || 15 * 60 * 1000;
+        this.port = process.env.PORT //|| 3000;
+        this.rateLimit = process.env.API_RATE_LIMIT //|| 100;
+        this.rateLimitWindow = process.env.API_RATE_LIMIT_WINDOW //|| 15 * 60 * 1000;
         this.urlBase = `/api/detector/plagio`;
         this.middlewares();
         this.urls = {
-            compare : `${this.urlBase}/compare`,
+            compare: `${this.urlBase}/compare`,
         }
         this.routes();
     }
