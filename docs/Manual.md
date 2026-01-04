@@ -2,7 +2,7 @@
 
 Esta API permite analizar y comparar la similitud entre dos bloques de texto utilizando algoritmos de procesamiento de lenguaje natural.
 
-Accede a los endpoints de la API para ejecutarlos en Postman: [Documentacion de la API - Postman](https://ritotorri-5321757.postman.co/workspace/Cortez-Jes%C3%BAs-'s-Workspace~f2d04eac-b157-4c2b-8546-4c816e6a14a8/collection/48845560-59e68cbf-ce85-432b-ae25-7424889a5fb9?action=share&creator=48845560)
+Accede a los endpoints de la API para ejecutarlos en Postman: [Documentacion de la API - Postman](https://ritotorri-5321757.postman.co/workspace/Cortez-Jes%C3%BAs-'s-Workspace~f2d04eac-b157-4c2b-8546-4c816e6a14a8/collection/48845560-59e68cbf-ce85-432b-ae25-7424889a5fb9?action=share&creator=48845560&active-environment=48845560-3eb25b89-fab4-499d-8321-ee69fd59539c)
 
 ## 🚀 Endpoints
 
