@@ -13,7 +13,7 @@
     "start:local": "node --env-file=.env src/index.js",
     "dev:local": "cross-env NODE_ENV=development nodemon --env-file=.env src/index.js",
 
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules --env-file=.env jest"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "string-similarity-js": "^2.1.4"
   },
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "dotenv": "^17.2.3",
     "jest": "^30.2.0",
     "nodemon": "^3.1.11",
