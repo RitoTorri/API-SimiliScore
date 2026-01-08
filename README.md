@@ -99,25 +99,25 @@ Este proyecto utiliza Docker exclusivamente para entornos de producción. Al no 
 Para construir la imagen desde cero y levantar el servicio, ejecuta:
 ```bash
 # Construir la imagen de docker
-docker-compose build --no-cache detector-de-plagio
+docker compose build --no-cache detector-de-plagio
 
 # ejecutar en primer plano
-docker-compose up detector-de-plagio
+docker compose up detector-de-plagio
 
 # Ejecutar en segundo plano
-docker-compose up -d detector-de-plagio
+docker compose up -d detector-de-plagio
 ```
 
 Si has realizado cambios en el código y necesitas que el contenedor los reconozca, el flujo correcto es detener el servicio actual y reconstruir:
 ```bash
 # Eliminar el contenedor
-docker-compose rm -s -f detector-de-plagio
+docker compose rm -s -f detector-de-plagio
 
 # Reconstruir la imagen de docker
-docker-compose build --no-cache detector-de-plagio
+docker compose build --no-cache detector-de-plagio
 
 # Ejecutar en segundo plano
-docker-compose up -d detector-de-plagio
+docker compose up -d detector-de-plagio
 ```
 
 ## 💡 ¿Necesitas ayuda o encontraste un error?
