@@ -40,22 +40,20 @@ Accede a la guía detallada de endpoints y pruebas:
 
 ## ⚙️ Configuracion
 En la carpeta raiz del proyecto hay un archivo llamado `example.env` que contiene las variables de entorno necesarias para ejecutar el proyecto. 
-
 Debes de cambiarle el nommbre del archivo `example.env` a `.env` y luego debes de darle valor a las variable definidas en ese archivo.
 
 **Importante:** El archivo `.env` debe de estar en la carpeta raiz del proyecto. Ademas las variables definidas alli seran o son utilizada para la ejecucion del proyecto desde docker.
 
 #### 🌍 Variables de entorno
-`PORT`: Puerto de ejecución del servidor. Puedes cambiarlo a cualquier puerto que desees. Por defecto es `3000`.
+`PORT`: Puerto de ejecución del servidor. Puedes cambiarlo a cualquier puerto que desees. Por defecto es `3000`.  
+
+`API_RATE_LIMIT`: Cantidad máxima de peticiones por IP. Puedes cambiarlo a cualquier número que desees. Por defecto es `100`.  
+
+`API_RATE_LIMIT_WINDOW`: Tiempo de bloqueo de dirección IP. Debes de cambiarlo a un número en milisegundos. Por defecto es 15 minutos (900000 milisegundos  
+
 ```bash
 PORT=3000
-```
-`API_RATE_LIMIT`: Cantidad máxima de peticiones por IP. Puedes cambiarlo a cualquier número que desees. Por defecto es `100`.
-```bash
 API_RATE_LIMIT=100
-```
-`API_RATE_LIMIT_WINDOW`: Tiempo de bloqueo de dirección IP. Debes de cambiarlo a un número en milisegundos. Por defecto es 15 minutos (900000 milisegundos).
-```bash
 API_RATE_LIMIT_WINDOW=900000
 ```
 
@@ -68,7 +66,15 @@ git clone ttps://github.com/RitoTorri/Detector-de-Plagio
 
 # Entrar en la carpeta del proyecto
 cd Detector-de-Plagio
+```
 
+## 🚀 Ejecución e instalacion de dependecias
+Este proyecto se compone de diferentes scripts para ejecutar el servidor en diferentes entornos. Desde docker hasta desarrollo local.
+
+### 💻 Ejecucion en el entorno LOCAL
+
+Primero instala las dependencias:
+```bash
 # Instalar las dependencias de producción
 npm run install:prod
 
@@ -76,11 +82,7 @@ npm run install:prod
 npm run install:all
 ```
 
-## 🚀 Ejecución
-Este proyecto se compone de diferentes scripts para ejecutar el servidor en diferentes entornos. Desde docker hasta desarrollo local.
-
-### 💻 Ejecucion en el entorno LOCAL
-
+Ejecuta el ocdigo de manera local:
 ```bash
 # Ejecutar el servidor de desarrollo
 npm run dev:local
